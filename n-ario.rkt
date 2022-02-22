@@ -11,7 +11,6 @@
 ; (nombreStruct-nombreDelAtributo definicion)
 ; ejemplo para obtener el nombre del nodito: (Node-name nodito)
 
-;Auxiliares
 (define (append-element lst elem)
   (foldr cons (list elem) lst))
 
@@ -22,23 +21,18 @@
   [else (search (rest list) value)]
   )
 )
+
 (define (insertNode parent child)
    (set-Node-children! parent (append-element (Node-children parent) child))
 )
-;;;;;;
-
-
   
 
-(define (insert root parent id name value); root es el nodo en la posicion actual
-    (cond
-        [ (equal? parent (Node-value root) ) (insertNode root (make-Node id name value empty)) ] ; si encontre el parent
-        [(empty?(Node-children root))
-            (null) ; si estoy en una hoja
-            (
-                for( [tmpNode (Node-children root)]); ingrese en los subnodos
+(define (insert root parent id name value)
+    (if (equal? parent (Node-value root))
+        (insertNode root (make-Node id name value empty)) ; Si estoy en el nodo correcto
+        (
+            for( [tmpNode (Node-children root)]); ingrese en los subnodos
                     (insert tmpNode parent id name value)
-            )      
-    ]
+        )
     )
 )
