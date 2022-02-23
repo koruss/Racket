@@ -22,8 +22,15 @@
   )
 )
 
+(define (delete-element lst elem)
+  (foldr remove (list elem) lst))
+
 (define (insertNode parent child)
    (set-Node-children! parent (append-element (Node-children parent) child))
+)
+
+(define (deleteNode parent child)
+   (set-Node-children! parent (delete-element (Node-children parent) child))
 )
 
 
@@ -65,6 +72,22 @@
   (ancestorAux root value null)
 )
 
+
+
+(define (delete-node root node) 
+    (
+    define (delete-node-aux root node parent)
+        (if (equal? (Node-value node) (Node-value root))
+            (deleteNode parent node) ; Si estoy en el nodo correcto
+            (
+                for( [tmpNode (Node-children root)]); ingrese en los subnodos
+                        (delete-node-aux tmpNode node root)
+            )
+        )
+    )
+  (ancestorAux root value null)
+  (root)
+)
 
 (insert nodito3 12 77 'Maria 77)
 (insert nodito3 12 88 'Jose 88)
