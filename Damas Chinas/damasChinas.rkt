@@ -630,13 +630,25 @@
 ; Logica del programa 
 ;
 ;
+(define-struct Jugada(tableroJugada ficha xDest yDest)#:transparent #:mutable)
+
+(define listaJugadasSimples (list (list 0 1)
+                           (list 0 1)
+                           (list 0 1)
+                           (list 0 1)
+                           (list 0 1)
+                           (list 0 1)
+                           (list 0 1)))
+
+(define listaJugadasSalto (list (list )
+
+                           ))
 
 
-
-(define (validarJugada tablero x y )
-   (if (< x (length tablero))
-       (if(< y (length (list-ref tablero x))  )
-          (if (equal? "E" (ficha-tipo (list-ref (list-ref tablero x)y) ))
+(define (validarJugada pTablero pX pY )
+   (if (< pX (length tablero))
+       (if(< pY (length (list-ref pTablero pX))  )
+          (if (equal? "E" (ficha-tipo (list-ref (list-ref pTablero pX)pY) ))
               "#t"
               "#f"
               )
@@ -646,12 +658,39 @@
        )   
 )
 
-(define (jugadaSimple tablero x y)
+;(define (validarJugadaSalto pTablero pX pY )
+;   (if (< x (length tablero))
+;       (if(< y (length (list-ref tablero x))  )
+;          (if (equal? "E" (ficha-tipo (list-ref (list-ref tablero x)y) ))
+;              "#t"
+;              "#f"
+;              )
+;          "#f"
+;          )
+;       "#f"
+;       )   
+;)
+
+(define (jugadaSimple pTablero pFicha pX pY)
   (
-   
+   if (equal? #t (validarJugada tablero pX pY))
+      (make-Jugada pTablero pFicha pX pY);hay que cambiar pX y pY por la suma de la posicion mas el x y de la ficha
+      #f
+  )  
+)
 
 
+(define (jugadaSalto pTablero pFicha pX pY)
+  (
+   (define (jugadaSaltoAux pTableroA pFichaA pXa pYa)
+     (
+      if (equal? #t (validarJugada pTableroA pFichaA pXa pYa ));hay que cambiar pX y pY por la suma de la posicion mas el x y de la ficha
+         (if (> (pFicha-x pFichaA) 6);Cambie la logica si es la mitad del tablero
+             cond
+             [()]
+         )
+      
+      )
+     )
    )
-
-
   )
