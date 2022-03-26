@@ -637,11 +637,21 @@
    (if (< x (length tablero))
        (if(< y (length (list-ref tablero x))  )
           (if (equal? "E" (ficha-tipo (list-ref (list-ref tablero x)y) ))
-              "hola"
-              "adios"
+              "#t"
+              "#f"
               )
-          "queso"
+          "#f"
           )
-       "pina"
+       "#f"
        )   
+)
+
+(define (jugadaSimple tablero x y)
+  (
+   
+
+
+   )
+
+
   )
