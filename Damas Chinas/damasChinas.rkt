@@ -494,18 +494,18 @@
 ;-------------------------------------------------------------------------------------
 ;-------------------------------------------------------------------------------------
 
-(define-struct ficha(tipo btn) #:mutable #:transparent)
+(define-struct ficha(tipo x y btn) #:mutable #:transparent)
 (provide ficha)
-(define x01(ficha "X" b0-1))
-(define x02(ficha "X" b1-1))
-(define x03(ficha "X" b1-2))
-(define x04(ficha "X" b2-1))
-(define x05(ficha "X" b2-2)) ; Fichas del jugador X
-(define x06(ficha "X" b2-3))
-(define x07(ficha "X" b3-1))
-(define x08(ficha "X" b3-2))
-(define x09(ficha "X" b3-3))
-(define x10(ficha "X" b3-4))
+(define x01(ficha "X" 0 0 b0-1))
+(define x02(ficha "X" 1 0 b1-1))
+(define x03(ficha "X" 1 1 b1-2))
+(define x04(ficha "X" 2 0 b2-1))
+(define x05(ficha "X" 2 1 b2-2)) ; Fichas del jugador X
+(define x06(ficha "X" 2 2 b2-3))
+(define x07(ficha "X" 3 0 b3-1))
+(define x08(ficha "X" 3 1 b3-2))
+(define x09(ficha "X" 3 2 b3-3))
+(define x10(ficha "X" 3 3 b3-4))
 
 (define o01(ficha "O" b12-1))
 (define o02(ficha "O" b11-1))
@@ -518,19 +518,19 @@
 (define o09(ficha "O" b9-3))
 (define o10(ficha "O" b9-4))
 
-(define e01(ficha "E" b4-1))
-(define e02(ficha "E" b4-2))
-(define e03(ficha "E" b4-3))
-(define e04(ficha "E" b4-4))
-(define e05(ficha "E" b4-5))
-(define e06(ficha "E" b5-1))
-(define e07(ficha "E" b5-2))
-(define e08(ficha "E" b5-3))
-(define e09(ficha "E" b5-4))
-(define e10(ficha "E" b5-5))
-(define e11(ficha "E" b5-6))
-(define e12(ficha "E" b6-1))
-(define e13(ficha "E" b6-2))
+(define e01(ficha "E" 4 0 b4-1))
+(define e02(ficha "E" 4 1 b4-2))
+(define e03(ficha "E" 4 2 b4-3))
+(define e04(ficha "E" 4 3 b4-4))
+(define e05(ficha "E" 4 4 b4-5))
+(define e06(ficha "E" 5 0 b5-1))
+(define e07(ficha "E" 5 1 b5-2))
+(define e08(ficha "E" 5 2 b5-3))
+(define e09(ficha "E" 5 3 b5-4))
+(define e10(ficha "E" 5 4 b5-5))
+(define e11(ficha "E" 5 5 b5-6))
+(define e12(ficha "E" 6 0 b6-1))
+(define e13(ficha "E" 6 1 b6-2))
 (define e14(ficha "E" b6-3)) ; Espacios disponibles
 (define e15(ficha "E" b6-4))
 (define e16(ficha "E" b6-5))
@@ -632,7 +632,7 @@
 ;
 (define-struct Jugada(tableroJugada ficha xDest yDest)#:transparent #:mutable)
 
-(define listaJugadasSimples (list (list 0 1)
+(define listaJugadasSimples (list (list 0 1); esto lo tenia y lo perdi hay que volverlo a hacer
                            (list 0 1)
                            (list 0 1)
                            (list 0 1)
@@ -640,8 +640,12 @@
                            (list 0 1)
                            (list 0 1)))
 
-(define listaJugadasSalto (list (list )
-
+(define listaJugadasSalto (list (list 2 0)
+                                (list 2 1)
+                                (list 2 2)
+                                (list 2 -2)
+                                (list 2 -1)
+                                (list 2 0)
                            ))
 
 
@@ -655,7 +659,7 @@
           "#f"
           )
        "#f"
-       )   
+   )   
 )
 
 ;(define (validarJugadaSalto pTablero pX pY )
@@ -680,17 +684,40 @@
 )
 
 
-(define (jugadaSalto pTablero pFicha pX pY)
+
+
+(define (jugadaSaltoAux pTableroA pFichaA pXa pYa)
   (
-   (define (jugadaSaltoAux pTableroA pFichaA pXa pYa)
-     (
-      if (equal? #t (validarJugada pTableroA pFichaA pXa pYa ));hay que cambiar pX y pY por la suma de la posicion mas el x y de la ficha
-         (if (> (pFicha-x pFichaA) 6);Cambie la logica si es la mitad del tablero
-             cond
-             [()]
-         )
+   if (equal? #t (validarJugada pTableroA pFichaA pXa pYa ));hay que cambiar pX y pY por la suma de la posicion mas el x y de la ficha
+      (if (> (ficha-x pFichaA) 6);Cambie la logica si es la mitad del tablero
+          #t
+          
+;          cond
+;          [(equal? pYa -2);salto a la izq (2 -2)
+;           (if (not (validarJugada pTableroA pFichaA (+(ficha-x pFichaA) 1) (-(ficha-y pFichaA)1) )); revisamos si hay ficha para poder saltar lo invertimos con el not ;hay que cambiar 
+;               (make-Jugada pTablero pFicha pX pY) ;cumplimos con todo
+;               #f;si no cumplimos todo
+;               )
+;           ]
+;          [
+;           (equal? pYa -1); salto al centro (2, -1)
+;           cond
+;           [(not (validarJugada pTableroA pFichaA (+(ficha-x pFichaA) 1) (-(ficha-y pFichaA)1) ))  (make-Jugada pTablero pFicha pX pY) ];salto por el lado izq, revisamos si hay ficha que saltar
+;           [(not (validarJugada pTableroA pFichaA (+(ficha-x pFichaA) 1) (ficha-y pFichaA) )) (make-Jugada pTablero pFicha pX pY)];salto por la der,
+;              
+;           ]
+;          [(equal? pYa 0);salto a la izq (2, 0)
+;           (if (not (validarJugada pTableroA pFichaA (+(ficha-x pFichaA) 1) (ficha-y pFichaA) )); revisamos si hay ficha para poder saltar lo invertimos con el not
+;               (make-Jugada pTablero pFicha pX pY) ;cumplimos con todo
+;               #f;si no cumplimos todo
+;               )
+;           ]
+
+          #f
+             
+             
+          )
+      #f
       
       )
-     )
-   )
   )
