@@ -12,613 +12,613 @@
 
 ; Make a button in the frame
 (define bnn (new button% [parent frame]
-             [label "Click para empezar"]
-             [enabled #t]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (send bnn enable #f)
-                         (jugar))]))
+                 [label "Click para empezar"]
+                 [enabled #t]
+                 ; Callback procedure for a button click:
+                 [callback (lambda (button event)
+                             (send bnn enable #f)
+                             (jugar))]))
 
 ; Make a static text message in the frame
 (define msg (new message% [parent frame]
-                          [label "Hi!"]
-                          [vert-margin 10]
-                          [stretchable-width #f]	 
-                          [stretchable-height #f]	
-                          [auto-resize #t]))
+                 [label "Hi!"]
+                 [vert-margin 10]
+                 [stretchable-width #f]	 
+                 [stretchable-height #f]	
+                 [auto-resize #t]))
 
 ; ---------------------------------------------------------------------
 
 (define row0 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                  [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b0-1 (new button% [parent row0]
-             [label "X"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 0 0 0 0 #f tablero) (cambiar-posiciones 0 0)))]))
+                  [label "X"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 0 0 0 0 #f tablero) (cambiar-posiciones 0 0)))]))
 
 ; ---------------------------------------------------------------------
 
 (define row1 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                  [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b1-1 (new button% [parent row1]
-             [label "X"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 1 0 0 0 #f tablero) (cambiar-posiciones 1 0)))]))
+                  [label "X"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 1 0 0 0 #f tablero) (cambiar-posiciones 1 0)))]))
 
 ; Make a button in the frame
 (define b1-2 (new button% [parent row1]
-             [label "X"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 1 1 0 0 #f tablero) (cambiar-posiciones 1 1)))]))
+                  [label "X"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 1 1 0 0 #f tablero) (cambiar-posiciones 1 1)))]))
 
 
 ; ---------------------------------------------------------------------
 
 (define row2 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                  [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b2-1 (new button% [parent row2]
-             [label "X"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 2 0 0 0 #f tablero) (cambiar-posiciones 2 0)))]))
+                  [label "X"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 2 0 0 0 #f tablero) (cambiar-posiciones 2 0)))]))
 
 ; Make a button in the frame
 (define b2-2 (new button% [parent row2]
-             [label "X"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 2 1 0 0 #f tablero) (cambiar-posiciones 2 1)))]))
+                  [label "X"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 2 1 0 0 #f tablero) (cambiar-posiciones 2 1)))]))
 
 ; Make a button in the frame
 (define b2-3 (new button% [parent row2]
-             [label "X"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 2 2 0 0 #f tablero) (cambiar-posiciones 2 2)))]))
+                  [label "X"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 2 2 0 0 #f tablero) (cambiar-posiciones 2 2)))]))
 
 
 ; -----------------------------------------------------------------
 
 (define row3 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                  [alignment (list 'center 'top)]))
 
 
 ; Make a button in the frame
 (define b3-1 (new button% [parent row3]
-             [label "X"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 3 0 0 0 #f tablero) (cambiar-posiciones 3 0)))]))
+                  [label "X"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 3 0 0 0 #f tablero) (cambiar-posiciones 3 0)))]))
 
 ; Make a button in the frame
 (define b3-2 (new button% [parent row3]
-             [label "X"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 3 1 0 0 #f tablero) (cambiar-posiciones 3 1)))]))
+                  [label "X"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 3 1 0 0 #f tablero) (cambiar-posiciones 3 1)))]))
 
 ; Make a button in the frame
 (define b3-3 (new button% [parent row3]
-             [label "X"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 3 2 0 0 #f tablero) (cambiar-posiciones 3 2)))]))
+                  [label "X"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 3 2 0 0 #f tablero) (cambiar-posiciones 3 2)))]))
 
 ; Make a button in the frame
 (define b3-4 (new button% [parent row3]
-             [label "X"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 3 3 0 0 #f tablero) (cambiar-posiciones 3 3)))]))
+                  [label "X"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 3 3 0 0 #f tablero) (cambiar-posiciones 3 3)))]))
 
 
 ; -----------------------------------------------------------------
 
 (define row4 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                  [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b4-1 (new button% [parent row4]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 4 0 0 0 #f tablero) (cambiar-posiciones 4 0)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 4 0 0 0 #f tablero) (cambiar-posiciones 4 0)))]))
 
 ; Make a button in the frame
 (define b4-2 (new button% [parent row4]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 4 1 0 0 #f tablero) (cambiar-posiciones 4 1)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 4 1 0 0 #f tablero) (cambiar-posiciones 4 1)))]))
 
 ; Make a button in the frame
 (define b4-3 (new button% [parent row4]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 4 2 0 0 #f tablero) (cambiar-posiciones 4 2)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 4 2 0 0 #f tablero) (cambiar-posiciones 4 2)))]))
 
 ; Make a button in the frame
 (define b4-4 (new button% [parent row4]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 4 3 0 0 #f tablero) (cambiar-posiciones 4 3)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 4 3 0 0 #f tablero) (cambiar-posiciones 4 3)))]))
 
 ; Make a button in the frame
 (define b4-5 (new button% [parent row4]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 4 4 0 0 #f tablero) (cambiar-posiciones 4 4)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 4 4 0 0 #f tablero) (cambiar-posiciones 4 4)))]))
 
 ; -----------------------------------------------------------------
 
 (define row5 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                  [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b5-1 (new button% [parent row5]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 5 0 0 0 #f tablero) (cambiar-posiciones 5 0)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 5 0 0 0 #f tablero) (cambiar-posiciones 5 0)))]))
 
 ; Make a button in the frame
 (define b5-2 (new button% [parent row5]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 5 1 0 0 #f tablero) (cambiar-posiciones 5 1)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 5 1 0 0 #f tablero) (cambiar-posiciones 5 1)))]))
 
 ; Make a button in the frame
 (define b5-3 (new button% [parent row5]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 5 2 0 0 #f tablero) (cambiar-posiciones 5 2)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 5 2 0 0 #f tablero) (cambiar-posiciones 5 2)))]))
 
 ; Make a button in the frame
 (define b5-4 (new button% [parent row5]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 5 3 0 0 #f tablero) (cambiar-posiciones 5 3)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 5 3 0 0 #f tablero) (cambiar-posiciones 5 3)))]))
 
 ; Make a button in the frame
 (define b5-5 (new button% [parent row5]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 5 4 0 0 #f tablero) (cambiar-posiciones 5 4)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 5 4 0 0 #f tablero) (cambiar-posiciones 5 4)))]))
 
 ; Make a button in the frame
 (define b5-6 (new button% [parent row5]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 5 5 0 0 #f tablero) (cambiar-posiciones 5 5)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 5 5 0 0 #f tablero) (cambiar-posiciones 5 5)))]))
 
 ; -----------------------------------------------------------------
 
 (define row6 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                  [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b6-1 (new button% [parent row6]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 6 0 0 0 #f tablero) (cambiar-posiciones 6 0)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 6 0 0 0 #f tablero) (cambiar-posiciones 6 0)))]))
 
 ; Make a button in the frame
 (define b6-2 (new button% [parent row6]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 6 1 0 0 #f tablero) (cambiar-posiciones 6 1)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 6 1 0 0 #f tablero) (cambiar-posiciones 6 1)))]))
 
 ; Make a button in the frame
 (define b6-3 (new button% [parent row6]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 6 2 0 0 #f tablero) (cambiar-posiciones 6 2)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 6 2 0 0 #f tablero) (cambiar-posiciones 6 2)))]))
 
 ; Make a button in the frame
 (define b6-4 (new button% [parent row6]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 6 3 0 0 #f tablero) (cambiar-posiciones 6 3)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 6 3 0 0 #f tablero) (cambiar-posiciones 6 3)))]))
 
 ; Make a button in the frame
 (define b6-5 (new button% [parent row6]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 6 4 0 0 #f tablero) (cambiar-posiciones 6 4)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 6 4 0 0 #f tablero) (cambiar-posiciones 6 4)))]))
 
 ; Make a button in the frame
 (define b6-6 (new button% [parent row6]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 6 5 0 0 #f tablero) (cambiar-posiciones 6 5)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 6 5 0 0 #f tablero) (cambiar-posiciones 6 5)))]))
 
 ; Make a button in the frame
 (define b6-7 (new button% [parent row6]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 6 6 0 0 #f tablero) (cambiar-posiciones 6 6)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 6 6 0 0 #f tablero) (cambiar-posiciones 6 6)))]))
 
 ; -----------------------------------------------------------------
 
 (define row7 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                  [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b7-1 (new button% [parent row7]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 7 0 0 0 #f tablero) (cambiar-posiciones 7 0)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 7 0 0 0 #f tablero) (cambiar-posiciones 7 0)))]))
 
 ; Make a button in the frame
 (define b7-2 (new button% [parent row7]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 7 1 0 0 #f tablero) (cambiar-posiciones 7 1)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 7 1 0 0 #f tablero) (cambiar-posiciones 7 1)))]))
 
 ; Make a button in the frame
 (define b7-3 (new button% [parent row7]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 7 2 0 0 #f tablero) (cambiar-posiciones 7 2)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 7 2 0 0 #f tablero) (cambiar-posiciones 7 2)))]))
 
 ; Make a button in the frame
 (define b7-4 (new button% [parent row7]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 7 3 0 0 #f tablero) (cambiar-posiciones 7 3)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 7 3 0 0 #f tablero) (cambiar-posiciones 7 3)))]))
 
 ; Make a button in the frame
 (define b7-5 (new button% [parent row7]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 7 4 0 0 #f tablero) (cambiar-posiciones 7 4)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 7 4 0 0 #f tablero) (cambiar-posiciones 7 4)))]))
 
 ; Make a button in the frame
 (define b7-6 (new button% [parent row7]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 7 5 0 0 #f tablero) (cambiar-posiciones 7 5)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 7 5 0 0 #f tablero) (cambiar-posiciones 7 5)))]))
 
 ; Make a button in the frame
 (define b7-7 (new button% [parent row7]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 7 6 0 0 #f tablero) (cambiar-posiciones 7 6)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 7 6 0 0 #f tablero) (cambiar-posiciones 7 6)))]))
 
 ; Make a button in the frame
 (define b7-8 (new button% [parent row7]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 7 7 0 0 #f tablero) (cambiar-posiciones 7 7)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 7 7 0 0 #f tablero) (cambiar-posiciones 7 7)))]))
 
 ; -----------------------------------------------------------------
 
 (define row8 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                  [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b8-1 (new button% [parent row8]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 8 0 0 0 #f tablero) (cambiar-posiciones 8 0)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 8 0 0 0 #f tablero) (cambiar-posiciones 8 0)))]))
 
 ; Make a button in the frame
 (define b8-2 (new button% [parent row8]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 8 1 0 0 #f tablero) (cambiar-posiciones 8 1)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 8 1 0 0 #f tablero) (cambiar-posiciones 8 1)))]))
 
 ; Make a button in the frame
 (define b8-3 (new button% [parent row8]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 8 2 0 0 #f tablero) (cambiar-posiciones 8 2)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 8 2 0 0 #f tablero) (cambiar-posiciones 8 2)))]))
 
 ; Make a button in the frame
 (define b8-4 (new button% [parent row8]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 8 3 0 0 #f tablero) (cambiar-posiciones 8 3)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 8 3 0 0 #f tablero) (cambiar-posiciones 8 3)))]))
 
 ; Make a button in the frame
 (define b8-5 (new button% [parent row8]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 8 4 0 0 #f tablero) (cambiar-posiciones 8 4)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 8 4 0 0 #f tablero) (cambiar-posiciones 8 4)))]))
 
 ; Make a button in the frame
 (define b8-6 (new button% [parent row8]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 8 5 0 0 #f tablero) (cambiar-posiciones 8 5)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 8 5 0 0 #f tablero) (cambiar-posiciones 8 5)))]))
 
 ; Make a button in the frame
 (define b8-7 (new button% [parent row8]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 8 6 0 0 #f tablero) (cambiar-posiciones 8 6)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 8 6 0 0 #f tablero) (cambiar-posiciones 8 6)))]))
 
 ; -----------------------------------------------------------------
 
 (define row9 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                  [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b9-1 (new button% [parent row9]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 9 0 0 0 #f tablero) (cambiar-posiciones 9 0)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 9 0 0 0 #f tablero) (cambiar-posiciones 9 0)))]))
 
 ; Make a button in the frame
 (define b9-2 (new button% [parent row9]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 9 1 0 0 #f tablero) (cambiar-posiciones 9 1)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 9 1 0 0 #f tablero) (cambiar-posiciones 9 1)))]))
 
 ; Make a button in the frame
 (define b9-3 (new button% [parent row9]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 9 2 0 0 #f tablero) (cambiar-posiciones 9 2)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 9 2 0 0 #f tablero) (cambiar-posiciones 9 2)))]))
 
 ; Make a button in the frame
 (define b9-4 (new button% [parent row9]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 9 3 0 0 #f tablero) (cambiar-posiciones 9 3)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 9 3 0 0 #f tablero) (cambiar-posiciones 9 3)))]))
 
 ; Make a button in the frame
 (define b9-5 (new button% [parent row9]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 9 4 0 0 #f tablero) (cambiar-posiciones 9 4)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 9 4 0 0 #f tablero) (cambiar-posiciones 9 4)))]))
 
 ; Make a button in the frame
 (define b9-6 (new button% [parent row9]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 9 5 0 0 #f tablero) (cambiar-posiciones 9 5)))]))
+                  [label "-"]
+                  [enabled #f]
+                  ; Callback procedure for a button click:
+                  [callback (lambda (button event)
+                              (if (= accionActual 0) (verificar-disponibles 9 5 0 0 #f tablero) (cambiar-posiciones 9 5)))]))
 
 ; -----------------------------------------------------------------
 
 (define row10 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                   [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b10-1 (new button% [parent row10]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 10 0 0 0 #f tablero) (cambiar-posiciones 10 0)))]))
+                   [label "-"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 10 0 0 0 #f tablero) (cambiar-posiciones 10 0)))]))
 
 ; Make a button in the frame
 (define b10-2 (new button% [parent row10]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 10 1 0 0 #f tablero) (cambiar-posiciones 10 1)))]))
+                   [label "-"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 10 1 0 0 #f tablero) (cambiar-posiciones 10 1)))]))
 
 ; Make a button in the frame
 (define b10-3 (new button% [parent row10]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 10 2 0 0 #f tablero) (cambiar-posiciones 10 2)))]))
+                   [label "-"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 10 2 0 0 #f tablero) (cambiar-posiciones 10 2)))]))
 
 ; Make a button in the frame
 (define b10-4 (new button% [parent row10]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 10 3 0 0 #f tablero) (cambiar-posiciones 10 3)))]))
+                   [label "-"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 10 3 0 0 #f tablero) (cambiar-posiciones 10 3)))]))
 
 ; Make a button in the frame
 (define b10-5 (new button% [parent row10]
-             [label "-"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 10 4 0 0 #f tablero) (cambiar-posiciones 10 4)))]))
+                   [label "-"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 10 4 0 0 #f tablero) (cambiar-posiciones 10 4)))]))
 
 ; -----------------------------------------------------------------
 
 (define row11 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                   [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b11-1 (new button% [parent row11]
-             [label "O"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 11 0 0 0 #f tablero) (cambiar-posiciones 11 0)))]))
+                   [label "O"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 11 0 0 0 #f tablero) (cambiar-posiciones 11 0)))]))
 
 ; Make a button in the frame
 (define b11-2 (new button% [parent row11]
-             [label "O"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 11 1 0 0 #f tablero) (cambiar-posiciones 11 1)))]))
+                   [label "O"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 11 1 0 0 #f tablero) (cambiar-posiciones 11 1)))]))
 
 ; Make a button in the frame
 (define b11-3 (new button% [parent row11]
-             [label "O"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 11 2 0 0 #f tablero) (cambiar-posiciones 11 2)))]))
+                   [label "O"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 11 2 0 0 #f tablero) (cambiar-posiciones 11 2)))]))
 
 ; Make a button in the frame
 (define b11-4 (new button% [parent row11]
-             [label "O"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 11 3 0 0 #f tablero) (cambiar-posiciones 11 3)))]))
+                   [label "O"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 11 3 0 0 #f tablero) (cambiar-posiciones 11 3)))]))
 
 ; -----------------------------------------------------------------
 
 (define row12 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                   [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b12-1 (new button% [parent row12]
-             [label "O"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 12 0 0 0 #f tablero) (cambiar-posiciones 12 0)))]))
+                   [label "O"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 12 0 0 0 #f tablero) (cambiar-posiciones 12 0)))]))
 
 ; Make a button in the frame
 (define b12-2 (new button% [parent row12]
-             [label "O"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 12 1 0 0 #f tablero) (cambiar-posiciones 12 1)))]))
+                   [label "O"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 12 1 0 0 #f tablero) (cambiar-posiciones 12 1)))]))
 
 ; Make a button in the frame
 (define b12-3 (new button% [parent row12]
-             [label "O"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 12 2 0 0 #f tablero) (cambiar-posiciones 12 2)))]))
+                   [label "O"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 12 2 0 0 #f tablero) (cambiar-posiciones 12 2)))]))
 
 ; -----------------------------------------------------------------
 
 (define row13 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                   [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b13-1 (new button% [parent row13]
-             [label "O"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 13 0 0 0 #f tablero) (cambiar-posiciones 13 0)))]))
+                   [label "O"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 13 0 0 0 #f tablero) (cambiar-posiciones 13 0)))]))
 
 ; Make a button in the frame
 (define b13-2 (new button% [parent row13]
-             [label "O"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (if (= accionActual 0) (verificar-disponibles 13 1 0 0 #f tablero) (cambiar-posiciones 13 1)))]))
+                   [label "O"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               (if (= accionActual 0) (verificar-disponibles 13 1 0 0 #f tablero) (cambiar-posiciones 13 1)))]))
 
 
 ; -----------------------------------------------------------------
 
 (define row14 (new horizontal-panel% [parent frame]
-                  	            [alignment (list 'center 'top)]))
+                   [alignment (list 'center 'top)]))
 
 ; Make a button in the frame
 (define b14-1 (new button% [parent row14]
-             [label "O"]
-             [enabled #f]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         ;(check-availables b12-1))]))
-                         (if (= accionActual 0) (verificar-disponibles 14 0 0 0 #f tablero) (cambiar-posiciones 14 0)))]))
+                   [label "O"]
+                   [enabled #f]
+                   ; Callback procedure for a button click:
+                   [callback (lambda (button event)
+                               ;(check-availables b12-1))]))
+                               (if (= accionActual 0) (verificar-disponibles 14 0 0 0 #f tablero) (cambiar-posiciones 14 0)))]))
 
 ;-------------------------------------------------------------------------------------
 ;-------------------------------------------------------------------------------------
@@ -636,7 +636,7 @@
 (define f06(ficha "X" 2 2 b2-3))
 
 (define f07(ficha "X" 3 0 b3-1))
-(define f08(ficha "X" 3 1 b3-2))
+(define f08(ficha "X" 4 1 b3-2))
 (define f09(ficha "X" 3 2 b3-3))
 (define f10(ficha "X" 3 3 b3-4))
 
@@ -708,22 +708,22 @@
 ; E --> Espacio.
 
 (define tablero(list
-               (list                  f01)
-               (list                f02 f03)
-               (list              f04 f05 f06)
-               (list            f07 f08 f09 f10)
-               (list          e01 e02 e03 e04 e05)
-               (list        e06 e07 e08 e09 e10 e11)
-               (list      e12 e13 e14 e15 e16 e17 e18)
-               (list    e19 e20 e21 e22 e23 e24 e25 e26)
-               (list      e27 e28 e29 e30 e31 e32 e33)
-               (list        e34 e35 e36 e37 e38 e39)
-               (list          e40 e41 e42 e43 e44)
-               (list            f17 f18 f19 f20)
-               (list              f14 f15 f16)
-               (list                f12 f13)
-               (list                  f11)
-               ))
+                (list                  f01)
+                (list                f02 f03)
+                (list              f04 f05 f06)
+                (list            f07 f08 f09 f10)
+                (list          e01 e02 e03 e04 e05)
+                (list        e06 e07 e08 e09 e10 e11)
+                (list      e12 e13 e14 e15 e16 e17 e18)
+                (list    e19 e20 e21 e22 e23 e24 e25 e26)
+                (list      e27 e28 e29 e30 e31 e32 e33)
+                (list        e34 e35 e36 e37 e38 e39)
+                (list          e40 e41 e42 e43 e44)
+                (list            f17 f18 f19 f20)
+                (list              f14 f15 f16)
+                (list                f12 f13)
+                (list                  f11)
+                ))
 
 ;-----------------------------------
 
@@ -736,8 +736,8 @@
   (cond
     [(empty? fila) (ubicar-elemento (rest tableroo) x1 y1 (+ x2 1) 0)]
     [(equal? x1 x2) (cond
-                       [(equal? y1 y2)(first fila)]
-                       [else (ubicar-elemento-aux tableroo x1 y1 x2 (+ y2 1) (rest fila))])]
+                      [(equal? y1 y2)(first fila)]
+                      [else (ubicar-elemento-aux tableroo x1 y1 x2 (+ y2 1) (rest fila))])]
     [else (ubicar-elemento-aux tableroo x1 y1 x2 (+ y2 1)(rest fila))]))
 
 ;------------------------------------
@@ -751,11 +751,11 @@
   (cond
     [(empty? fila) (nuevo-tablero (rest tableroo) x1 y1 (+ x2 1) 0 (append tablero2 (list fila2)))]
     [(equal? x1 x2) (cond
-                       [(equal? y1 y2) (nuevo-tablero-aux tableroo x1 y1 x2 (+ y2 1) (rest fila) tablero2 (append fila2 (list (struct-copy ficha (ubicar-elemento tablero x1 y1 0 0) [tipo turnoActual]))))]
-                       [else (nuevo-tablero-aux tableroo x1 y1 x2 (+ y2 1)(rest fila) tablero2 (append fila2 (list(first fila))))])]
+                      [(equal? y1 y2) (nuevo-tablero-aux tableroo x1 y1 x2 (+ y2 1) (rest fila) tablero2 (append fila2 (list (struct-copy ficha (ubicar-elemento tablero x1 y1 0 0) [tipo turnoActual]))))]
+                      [else (nuevo-tablero-aux tableroo x1 y1 x2 (+ y2 1)(rest fila) tablero2 (append fila2 (list(first fila))))])]
     [(equal? actualX x2) (cond
-                       [(equal? actualY y2) (nuevo-tablero-aux tableroo x1 y1 x2 (+ y2 1) (rest fila) tablero2 (append fila2 (list (struct-copy ficha (ubicar-elemento tablero actualX actualY 0 0) [tipo "E"]))))]
-                       [else (nuevo-tablero-aux tableroo x1 y1 x2 (+ y2 1) (rest fila) tablero2 (append fila2 (list(first fila))))])]
+                           [(equal? actualY y2) (nuevo-tablero-aux tableroo x1 y1 x2 (+ y2 1) (rest fila) tablero2 (append fila2 (list (struct-copy ficha (ubicar-elemento tablero actualX actualY 0 0) [tipo "E"]))))]
+                           [else (nuevo-tablero-aux tableroo x1 y1 x2 (+ y2 1) (rest fila) tablero2 (append fila2 (list(first fila))))])]
     [else (nuevo-tablero-aux tableroo x1 y1 x2 (+ y2 1)(rest fila) tablero2 (append fila2 (list(first fila))))]))
 
 ;----------------------------------
@@ -794,73 +794,73 @@
 
 
     [(> x1 7)
-    (cond
-    ;abajo de la mitad
-    [(equal? (- x1 1) x2)
      (cond
-      [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
-      [(equal? y1 (- y2 1)) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
-      [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+       ;abajo de la mitad
+       [(equal? (- x1 1) x2)
+        (cond
+          [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
+          [(equal? y1 (- y2 1)) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
+          [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
 
-    [(equal? (+ x1 1) x2)
-     (cond
-      [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
-      [(equal? (- y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
-      [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
-    ;error
-    ;[(equal? (- x1 2) x2)
-    ; (cond
-    ;  [(equal? (+ y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
-    ;  [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
-    ;error
-    ;[(equal? (+ x1 2) x2)
-    ; (cond
-    ;  [(equal? (- y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
-    ;  [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]6
+       [(equal? (+ x1 1) x2)
+        (cond
+          [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
+          [(equal? (- y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
+          [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+       ;error
+       ;[(equal? (- x1 2) x2)
+       ; (cond
+       ;  [(equal? (+ y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
+       ;  [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+       ;error
+       ;[(equal? (+ x1 2) x2)
+       ; (cond
+       ;  [(equal? (- y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
+       ;  [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]6
     
-    [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+       [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
 
     [(< x1 7)
      (cond
-    ;arriba de la mitad
-    [(equal? (+ x1 1) x2)
-     (cond
-      [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
-      [(equal? (+ y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
-      [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+       ;arriba de la mitad
+       [(equal? (+ x1 1) x2)
+        (cond
+          [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
+          [(equal? (+ y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
+          [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
 
-    [(equal? (- x1 1) x2)
-     (cond
-      [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
-      [(equal? y1 (+ y2 1)) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
-      [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
-    ;error
-    ;[(equal? (+ x1 2) x2)
-    ; (cond
-    ;  [(equal? (+ y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
-    ;  [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
-    ;error
-    ;[(equal? (- x1 2) x2)
-    ; (cond
-    ;  [(equal? (- y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
-    ;  [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+       [(equal? (- x1 1) x2)
+        (cond
+          [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
+          [(equal? y1 (+ y2 1)) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
+          [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+       ;error
+       ;[(equal? (+ x1 2) x2)
+       ; (cond
+       ;  [(equal? (+ y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
+       ;  [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+       ;error
+       ;[(equal? (- x1 2) x2)
+       ; (cond
+       ;  [(equal? (- y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
+       ;  [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
     
-    [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+       [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
     
 
     [(= x1 7)
      (cond
        [(equal? (+ x1 1) x2)
-     (cond
-      [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
-      [(equal? (- y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
-      [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+        (cond
+          [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
+          [(equal? (- y1 1) y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
+          [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
 
-    [(equal? (- x1 1) x2)
-     (cond
-      [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
-      [(equal? y1 (+ y2 1)) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
-      [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
+       [(equal? (- x1 1) x2)
+        (cond
+          [(equal? y1 y2) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - izquierda
+          [(equal? y1 (+ y2 1)) (begin (cambiar-btn (ficha-btn (first fila)) #t) (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) #t))] ; arriba - derecha
+          [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
        [else (verificar-disponibles-aux x1 y1 x2 (+ y2 1) tableroo (rest fila) flag)])]
     ;error
     ;[(equal? (- x1 2) x2)
@@ -958,7 +958,7 @@
 (define-struct Jugada(tableroJugada ficha xDest yDest)#:transparent #:mutable)
 
 (define listaJugadasSimples (list (list 0 1); esto lo tenia y lo perdi hay que volverlo a hacer
-                                  (list 0 1)
+                                  (list 1 0)
                                   (list 0 1)
                                   (list 0 1)
                                   (list 0 1)
@@ -966,19 +966,22 @@
                                   (list 0 1)
                                   ))
 
-(define listaJugadasSalto (list (list 2 0)
-                                (list 2 1)
-                                (list 2 2)
-                                (list 2 -2)
-                                (list 2 -1)
-                                (list 2 0)
-                                ))
+(define listaJugadasSaltoSup (list (list 2 0)
+                                   (list 2 1)
+                                   (list 2 2)
+                                   ))
+
+(define listaJugadasSaltoInf (list(list 2 -2)
+                                  (list 2 -1)
+                                  (list 2  0)
+                                  ))
 
 
 (define (validarJugada pTablero pX pY )
   (if (< pX (length tablero))
       (if(< pY (length (list-ref pTablero pX))  )
-         (if (equal? "E" (ficha-tipo (list-ref (list-ref pTablero pX)pY) ))
+         (if (equal? "E" (ficha-tipo
+                          (list-ref (list-ref pTablero pX)pY) ))
              #t
              #f
              )
@@ -1011,7 +1014,8 @@
 
 
 
-
+;devuelve true si la jugada a intentar es posible o falso si no
+;recibe el tablero las coordenadas de la ficha y las coordenadas del espacio destino 
 (define (validarJugadaSalto pTablero pXOrigen pYOrigen pX pY)
   (
    if (equal? #t (validarJugada pTablero (+ pXOrigen pX) (+ pYOrigen pY) ));hay que cambiar pX y pY por la suma de la posicion mas el x y de la ficha
@@ -1071,36 +1075,43 @@
 
 
 
-(define (jugadaSalto pTablero pFicha pX pY )
-  (
-   define (jugadaSaltoAux pTableroAux pFichaAux pXOrigen pYOrigen pXAux pYAux listaAux cont)
-    (
-     cond
-      [(equal? #f validarJugadaSalto pXOrigen pYOrigen  pXAux pYAux  ) listaAux]
-      [(< (length listaJugadasSalto) cont); 
-       (
-        jugadaSaltoAux
-        pTableroAux ;el tablero
-        pFichaAux; la ficha
-        (+ pXOrigen pXAux); el nuevo punto de origen 
-        (+ pYOrigen pYAux); el nuevo punto de origen 
-        (first(list-ref listaJugadasSalto cont));obtiene de la lista de movimientos Salto
-        (second(list-ref listaJugadasSalto cont))
-        (append-element listaAux (make-Jugada pTablero pFicha pX pY))
-        (+ cont 1)
-        
-        
-        )
-       ]
-      )
-       
-    )
-  (
-  for( [tupleList listaJugadasSalto]);cambiar a car cdr 
-  (jugadaSaltoAux pTablero pFicha (ficha-x pFicha) (ficha-y pFicha) (first tupleList) (second tupleList) '() 0)
-   )
-
-  )
+;(define (jugadaSalto pTablero pFicha pX pY )
+;  (
+;   ;recibe el tablero, la ficha a mover,la posicion 
+;   define (jugadaSaltoAux pTableroAux pFichaAux pXOrigen pYOrigen pXAux pYAux listaAux cont)
+;    (   
+;     cond
+;      [(equal? #f (validarJugadaSalto pTablero pXOrigen pYOrigen  pXAux pYAux)  ) listaAux]
+;      [(< (length listaJugadasSalto) cont)
+;       (if (and (positive? (+ (+ pXOrigen pXAux) (first(list-ref listaJugadasSalto cont)))  )
+;                (positive? ) ))
+;
+;       
+;       (
+;        jugadaSaltoAux
+;        pTableroAux ;el tablero
+;        pFichaAux; la ficha
+;        (+ pXOrigen pXAux); el nuevo punto de origen 
+;        (+ pYOrigen pYAux); el nuevo punto de origen 
+;        (+ (+ pXOrigen pXAux) (first(list-ref listaJugadasSalto cont)));obtiene de la lista de movimientos Salto
+;        (+ (+ pYOrigen pYAux) (second(list-ref listaJugadasSalto cont)))
+;        (append-element listaAux (make-Jugada pTablero pFicha pX pY))
+;        (+ cont 1)        
+;        )
+;       ]
+;      )   
+;    )
+;
+;  if()
+;
+;  
+;  (
+;  for( [tupleList listaJugadasSalto]);cambiar a car cdr
+;  (println (first tupleList))
+;  (println (second tupleList))
+;  (jugadaSaltoAux pTablero pFicha (ficha-x pFicha) (ficha-y pFicha) (first tupleList) (second tupleList) '() 0)
+;   )
+;)
 
 
 ;(define (crearJugadas tablero pFicha x y); esta funcion deberia de crear todas las posibles jugadas 
@@ -1113,3 +1124,96 @@
 ;   )
 ;
 ;)
+
+
+(define (jugadaSaltoAux pTableroAux pFichaAux pXOrigen pYOrigen pXAux pYAux listaAux cont)
+  (   
+   cond
+    [(equal? #f (validarJugadaSalto pTableroAux pXOrigen pYOrigen  pXAux pYAux)  ) listaAux]
+    [(< pXOrigen 6) ; Si estoy en el lado superior del tablero
+     (
+      
+      if (< cont (length listaJugadasSaltoSup))
+         (
+          jugadaSaltoAux
+          pTableroAux ;el tablero
+          pFichaAux; la ficha
+          (+ pXOrigen pXAux); el nuevo punto de origen 
+          (+ pYOrigen pYAux); el nuevo punto de origen 
+          (+ (+ pXOrigen pXAux) (first(list-ref listaJugadasSaltoSup cont)));obtiene de la lista de movimientos Salto
+          (+ (+ pYOrigen pYAux) (second(list-ref listaJugadasSaltoSup cont)))
+          (append-element listaAux (make-Jugada pTableroAux pFichaAux pXAux pYAux))
+          (+ cont 1)
+          )
+         listaAux
+
+         )
+     ]
+    [(> pXOrigen 6 )
+     (print "asd")
+
+     (
+      if (and (positive? (+ pXOrigen pXAux) ) (positive? (+ pYOrigen pYAux))  (< cont (length listaJugadasSaltoInf)))
+         (
+          jugadaSaltoAux
+          pTableroAux ;el tablero
+          pFichaAux; la ficha
+          (+ pXOrigen pXAux); el nuevo punto de origen 
+          (+ pYOrigen pYAux); el nuevo punto de origen 
+          (+ (+ pXOrigen pXAux) (first(list-ref listaJugadasSaltoInf cont)));obtiene de la lista de movimientos Salto
+          (+ (+ pYOrigen pYAux) (second(list-ref listaJugadasSaltoInf cont)))
+          (append-element listaAux (make-Jugada pTableroAux pFichaAux pXAux pYAux))
+          (+ cont 1)
+          )
+         listaAux
+        
+         )
+
+
+     ]
+    
+    
+;    [(< (length listaJugadasSalto) cont)      
+;     (
+;      jugadaSaltoAux
+;      pTableroAux ;el tablero
+;      pFichaAux; la ficha
+;      (+ pXOrigen pXAux); el nuevo punto de origen 
+;      (+ pYOrigen pYAux); el nuevo punto de origen 
+;      (+ (+ pXOrigen pXAux) (first(list-ref listaJugadasSalto cont)));obtiene de la lista de movimientos Salto
+;      (+ (+ pYOrigen pYAux) (second(list-ref listaJugadasSalto cont)))
+;      (append-element listaAux (make-Jugada pTablero pFicha pX pY))
+;      (+ cont 1)        
+;      )
+;     ]
+    )   
+  )
+
+
+
+(define (jugadaSalto pTablero pFicha)
+  (
+  (
+     if(> (ficha-x pFicha) 6 )
+    (
+     for( [tupleList listaJugadasSaltoInf]);cambiar a car cdr
+      (jugadaSaltoAux pTablero pFicha (ficha-x pFicha) (ficha-y pFicha) (first tupleList) (second tupleList) '() 0)
+    )
+    
+    (
+     for( [tupleList listaJugadasSaltoSup]);cambiar a car cdr
+;      (println (first tupleList))
+;      (println (second tupleList))
+      (jugadaSaltoAux pTablero pFicha (ficha-x pFicha) (ficha-y pFicha) (first tupleList) (second tupleList) '() 0)
+     )
+    )
+   
+   )
+
+)
+
+
+(define (crearJugadas pTablero pFicha lista))
+(
+  append (jugadaSalto pTablero pFicha) 
+ )
