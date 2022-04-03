@@ -636,7 +636,7 @@
 (define f06(ficha "X" 2 2 b2-3))
 
 (define f07(ficha "X" 3 0 b3-1))
-(define f08(ficha "X" 4 1 b3-2))
+(define f08(ficha "X" 4 1 b3-2)); modifique este para testear, valor original 3 1
 (define f09(ficha "X" 3 2 b3-3))
 (define f10(ficha "X" 3 3 b3-4))
 
@@ -706,7 +706,7 @@
 
 ; X-O --> Fichas de jugadores.
 ; E --> Espacio.
-
+(define listaFichas (list f01 f02 f03 f04 f05 f06 f07 f08 f09 f10))
 (define tablero(list
                 (list                  f01)
                 (list                f02 f03)
@@ -957,13 +957,15 @@
 
 (define-struct Jugada(tableroJugada ficha xDest yDest)#:transparent #:mutable)
 
-(define listaJugadasSimples (list (list 0 1); esto lo tenia y lo perdi hay que volverlo a hacer
-                                  (list 1 0)
-                                  (list 0 1)
-                                  (list 0 1)
-                                  (list 0 1)
-                                  (list 0 1)
-                                  (list 0 1)
+(define listaJugadasSimplesSup (list (list 0  1);derecha
+                                     (list 0 -1);izquierda
+                                     (list 1  1);diagonalDer
+                                     (list 1  0);diagonalIzq
+                                     ))
+(define listaJugadasSimplesInf (list (list 0 1);derecha
+                                  (list 0 -1);izquierda
+                                  (list 1 -1);diagonalIzq
+                                  (list 1 0);diagonalDer
                                   ))
 
 (define listaJugadasSaltoSup (list (list 2 0)
@@ -978,7 +980,8 @@
 
 
 (define (validarJugada pTablero pX pY )
-  (if (< pX (length tablero))
+  (
+   if (and (< pX (length tablero)) (positive? pX) (positive? pY));si no me salgo de los limites del tablero
       (if(< pY (length (list-ref pTablero pX))  )
          (if (equal? "E" (ficha-tipo
                           (list-ref (list-ref pTablero pX)pY) ))
@@ -991,26 +994,48 @@
       )   
   )
 
-;(define (validarJugadaSalto pTablero pX pY )
-;   (if (< x (length tablero))
-;       (if(< y (length (list-ref tablero x))  )
-;          (if (equal? "E" (ficha-tipo (list-ref (list-ref tablero x)y) ))
-;              "#t"
-;              "#f"
-;              )
-;          "#f"
-;          )
-;       "#f"
-;       )   
-;)
 
-(define (jugadaSimple pTablero pFicha pX pY)
-  (
-   if (equal? #t (validarJugada tablero pX pY))
-      (make-Jugada pTablero pFicha pX pY);hay que cambiar pX y pY por la suma de la posicion mas el x y de la ficha
-      #f
-      )  
+
+(define (jugadaSimplesAux pTableroAux pFichaAux lista result)
+  ( 
+   cond
+    [ (empty? lista) result];si acabe de recorrer la lista de movimientos devuelvo las jugadas que se consiguieron
+    [else
+     (
+      cond
+       [ (equal? #t (validarJugada tablero (+ (ficha-x pFichaAux) (first (first lista))) (+ (ficha-y pFichaAux) (second (first lista)) ) )); si es posible moverse al campo 
+         (;se llama recursivamente anadiendo a la lista de jugadas la jugada y moviendose a la siguiente tupla a revisar
+          jugadaSimplesAux
+          pTableroAux
+          pFichaAux
+          (cdr lista)
+          (append-element result (make-Jugada pTableroAux pFichaAux (+ (ficha-x pFichaAux) (first (first lista))) (+ (ficha-y pFichaAux) (second (first lista)) ))   )
+          )
+         ]
+       [else;si no es posible la jugada se llama recursivamente unicamente moviendose a la siguiente tupla 
+        (
+         jugadaSimplesAux
+         pTableroAux
+         pFichaAux
+         (cdr lista)
+         result
+         )
+        ]
+       )     
+     ] 
+    )
   )
+ 
+
+
+
+(define (jugadasSimples pTablero pFicha )
+  (
+   if (< (ficha-x pFicha) 6); la parte superior del tablero
+      ( jugadaSimplesAux pTablero pFicha listaJugadasSimplesSup '() );si la ficha esta en la mitad superior del tablero
+      ( jugadaSimplesAux pTablero pFicha listaJugadasSimplesInf '() );si esta en la inferior, la IA son las fichas de arriba
+   )
+)
 
 
 
@@ -1074,58 +1099,6 @@
   )
 
 
-
-;(define (jugadaSalto pTablero pFicha pX pY )
-;  (
-;   ;recibe el tablero, la ficha a mover,la posicion 
-;   define (jugadaSaltoAux pTableroAux pFichaAux pXOrigen pYOrigen pXAux pYAux listaAux cont)
-;    (   
-;     cond
-;      [(equal? #f (validarJugadaSalto pTablero pXOrigen pYOrigen  pXAux pYAux)  ) listaAux]
-;      [(< (length listaJugadasSalto) cont)
-;       (if (and (positive? (+ (+ pXOrigen pXAux) (first(list-ref listaJugadasSalto cont)))  )
-;                (positive? ) ))
-;
-;       
-;       (
-;        jugadaSaltoAux
-;        pTableroAux ;el tablero
-;        pFichaAux; la ficha
-;        (+ pXOrigen pXAux); el nuevo punto de origen 
-;        (+ pYOrigen pYAux); el nuevo punto de origen 
-;        (+ (+ pXOrigen pXAux) (first(list-ref listaJugadasSalto cont)));obtiene de la lista de movimientos Salto
-;        (+ (+ pYOrigen pYAux) (second(list-ref listaJugadasSalto cont)))
-;        (append-element listaAux (make-Jugada pTablero pFicha pX pY))
-;        (+ cont 1)        
-;        )
-;       ]
-;      )   
-;    )
-;
-;  if()
-;
-;  
-;  (
-;  for( [tupleList listaJugadasSalto]);cambiar a car cdr
-;  (println (first tupleList))
-;  (println (second tupleList))
-;  (jugadaSaltoAux pTablero pFicha (ficha-x pFicha) (ficha-y pFicha) (first tupleList) (second tupleList) '() 0)
-;   )
-;)
-
-
-;(define (crearJugadas tablero pFicha x y); esta funcion deberia de crear todas las posibles jugadas 
-;  (
-;   define (crearJugadasAux tablero ficha listaJugadas)
-;    (
-;     if (equal? #f validarJugadaSalto)
-;        
-;     )
-;   )
-;
-;)
-
-
 (define (jugadaSaltoAux pTableroAux pFichaAux pXOrigen pYOrigen pXAux pYAux listaAux cont)
   (   
    cond
@@ -1142,11 +1115,10 @@
           (+ pYOrigen pYAux); el nuevo punto de origen 
           (+ (+ pXOrigen pXAux) (first(list-ref listaJugadasSaltoSup cont)));obtiene de la lista de movimientos Salto
           (+ (+ pYOrigen pYAux) (second(list-ref listaJugadasSaltoSup cont)))
-          (append-element listaAux (make-Jugada pTableroAux pFichaAux pXAux pYAux))
+          (append-element listaAux (make-Jugada pTableroAux pFichaAux (+ pXOrigen pXAux)(+ pYOrigen pYAux)))
           (+ cont 1)
           )
          listaAux
-
          )
      ]
     [(> pXOrigen 6 )
@@ -1162,58 +1134,53 @@
           (+ pYOrigen pYAux); el nuevo punto de origen 
           (+ (+ pXOrigen pXAux) (first(list-ref listaJugadasSaltoInf cont)));obtiene de la lista de movimientos Salto
           (+ (+ pYOrigen pYAux) (second(list-ref listaJugadasSaltoInf cont)))
-          (append-element listaAux (make-Jugada pTableroAux pFichaAux pXAux pYAux))
+          (append-element listaAux (make-Jugada pTableroAux pFichaAux (+ pXOrigen pXAux)(+ pYOrigen pYAux)))
           (+ cont 1)
           )
          listaAux
-        
          )
-
-
      ]
-    
-    
-;    [(< (length listaJugadasSalto) cont)      
-;     (
-;      jugadaSaltoAux
-;      pTableroAux ;el tablero
-;      pFichaAux; la ficha
-;      (+ pXOrigen pXAux); el nuevo punto de origen 
-;      (+ pYOrigen pYAux); el nuevo punto de origen 
-;      (+ (+ pXOrigen pXAux) (first(list-ref listaJugadasSalto cont)));obtiene de la lista de movimientos Salto
-;      (+ (+ pYOrigen pYAux) (second(list-ref listaJugadasSalto cont)))
-;      (append-element listaAux (make-Jugada pTablero pFicha pX pY))
-;      (+ cont 1)        
-;      )
-;     ]
     )   
   )
 
 
 
-(define (jugadaSalto pTablero pFicha)
-  (
+(define (jugadasSalto pTablero pFicha lista)  
   (
      if(> (ficha-x pFicha) 6 )
     (
      for( [tupleList listaJugadasSaltoInf]);cambiar a car cdr
-      (jugadaSaltoAux pTablero pFicha (ficha-x pFicha) (ficha-y pFicha) (first tupleList) (second tupleList) '() 0)
+      (append lista (jugadaSaltoAux pTablero pFicha (ficha-x pFicha) (ficha-y pFicha) (first tupleList) (second tupleList) '() 0))
     )
     
     (
      for( [tupleList listaJugadasSaltoSup]);cambiar a car cdr
 ;      (println (first tupleList))
 ;      (println (second tupleList))
-      (jugadaSaltoAux pTablero pFicha (ficha-x pFicha) (ficha-y pFicha) (first tupleList) (second tupleList) '() 0)
+      (printear (jugadaSaltoAux pTablero pFicha (ficha-x pFicha) (ficha-y pFicha) (first tupleList) (second tupleList) '() 0))
+      
      )
     )
-   
-   )
-
+  lista
 )
 
 
-(define (crearJugadas pTablero pFicha lista))
+
+
+(define (printear lista)
 (
-  append (jugadaSalto pTablero pFicha) 
+      for( [element lista]);cambiar a car cdr
+       
+        (println "--------")
+        (print "origen x: ")
+        (print (ficha-x (Jugada-ficha element)))
+        (print " origen y: ")
+        (println (ficha-x (Jugada-ficha element)))
+       `(println "-Destinos ")
+        (print (Jugada-xDest element))
+        (print " <--x  y--> ")
+        (println (Jugada-yDest element))
+        (println "--------")     
  )
+
+  )
